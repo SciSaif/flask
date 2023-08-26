@@ -5,3 +5,6 @@ itsdangerous==1.1.0
 Jinja2==2.11.3
 MarkupSafe==1.1.1
 Werkzeug==1.0.1
+mysql_connector_repackaged==0.3.1
+python-dotenv==1.0.0
+boto3==1.28.35
