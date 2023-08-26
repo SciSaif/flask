@@ -4,8 +4,8 @@ from flask import Flask, request, jsonify
 import json
 
 from dotenv import load_dotenv
-from mysql.connector import Error
-import mysql.connector
+# from mysql.connector import Error
+# import mysql.connector
 from datetime import datetime
 
 
