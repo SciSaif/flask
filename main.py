@@ -109,23 +109,23 @@ def upload_file():
 @app.route('/getFiles', methods=['GET'])
 def getAllFiles():
     try:
-        # cursor = connection.cursor()
-        # cursor.execute(
-        #     "SELECT id, filename, url, duration, fileSize, fileType FROM uploaded_files")
-        # rows = cursor.fetchall()
+        cursor = connection.cursor()
+        cursor.execute(
+            "SELECT id, filename, url, duration, fileSize, fileType FROM uploaded_files")
+        rows = cursor.fetchall()
         # fetch the signed url for each file
-        # for i, row in enumerate(rows):
-        #     rows[i] = {
-        #         "id": row[0],
-        #         "filename": row[1],
-        #         "url": get_signed_url(row[2]),
-        #         "duration": row[3],
-        #         "fileSize": row[4],
-        #         "fileType": row[5]
-        #     }
-        #     print(rows[i])
-        # cursor.close()
-        return jsonify({"files": get_signed_url('uploads/26-08-2023_06-55-52_tune1.mp3')}), 200
+        for i, row in enumerate(rows):
+            rows[i] = {
+                "id": row[0],
+                "filename": row[1],
+                "url": get_signed_url(row[2]),
+                "duration": row[3],
+                "fileSize": row[4],
+                "fileType": row[5]
+            }
+            print(rows[i])
+        cursor.close()
+        return jsonify({"files": rows}), 200
 
     except Exception as e:
         print(e)
